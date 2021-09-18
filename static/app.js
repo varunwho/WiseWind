@@ -31,7 +31,7 @@ button.addEventListener('click',function() {
 
 //====================Forecast===========//
 $(document).ready(function() {
-$('button').click(function(event){
+$('out').click(function(event){
     console.log("inside ajax");
     $.ajax(
         {
@@ -39,7 +39,7 @@ $('button').click(function(event){
                 speedval : speed.innerHTML,
                 direction : direction.innerHTML,
                     },
-            url: '/predict',
+            url: '/hi',
             type : 'POST',
             success: function(data)
             {
@@ -49,6 +49,7 @@ $('button').click(function(event){
 
         }
     );
+    
     
 }
 );
