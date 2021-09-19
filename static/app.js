@@ -1,51 +1,74 @@
+let weather = {
+  apiKey: "18e247e0f23aeb979d363b605126f7e9",
+  fetchWeather: function (city) {
+    fetch(
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+        city +
+        "&units=metric&appid=" +
+        this.apiKey
+    )
+      .then((response) => {
+        if (!response.ok) {
+          alert("No weather found.");
+          throw new Error("No weather found.");
+        }
+        return response.json();
+      })
+      .then((data) => this.displayWeather(data));
+  },
+  displayWeather: function (data) {
+      console.log(data);
+    const { name } = data;
+    const { icon, description } = data.weather[0];
+    const { temp } = data.main;
+    const { speed, deg } = data.wind;
+    document.querySelector(".city").innerText = "Weather in " + name;
+    document.querySelector(".icon").src =
+      "https://openweathermap.org/img/wn/" + icon + ".png";
+    document.querySelector(".description").innerText = description;
+    document.querySelector(".temp").innerText = temp + "°C";
+    document.querySelector(".wind").innerText =
+      "Wind speed: " + speed + " km/h";
+      document.querySelector(".degree").innerText =
+      "Wind Direction: " + deg + "°";
+    document.querySelector(".weather").classList.remove("loading");
+  },
+  search: function () {
+    this.fetchWeather(document.querySelector(".search-bar").value);
+  },
+};
 
-let button = document.querySelector('.button');
-let inputValue = document.querySelector('.inputValue');
-let cityName = document.querySelector('.cityName');
-let desc = document.querySelector('.desc');
-let temp = document.querySelector('.temp');
-let speed = document.querySelector('.speed');
-let direction = document.querySelector('.direction'); 
+document.querySelector(".search button").addEventListener("click", function () {
+  weather.search();
+});
 
-button.addEventListener('click',function() {
-    fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=18e247e0f23aeb979d363b605126f7e9')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        let nameValue = data['name'];
-        let tempValue = data['main']['temp'];
-        let descValue = data['weather'][0]['description'];
-        let windSpeed = data['wind']['speed'];
-        let directionValue = data['wind']['deg'];
+document
+  .querySelector(".search-bar")
+  .addEventListener("keyup", function (event) {
+    if (event.key == "Enter") {
+      weather.search();
+    }
+  });
 
-        cityName.innerHTML = nameValue;
-        desc.innerHTML = descValue;
-        temp.innerHTML = (tempValue-273.15).toFixed(2)+'\xB0C';
-        speed.innerHTML = windSpeed;
-        direction.innerHTML = directionValue;
-    })
-
-.catch(err => console.log('Wrong city name'))
-})
+weather.fetchWeather("Odisha");
 
 
 //====================Forecast===========//
-
-
-/*
 $(document).ready(function() {
-$('#graph').click(function(event){
+$('button').click(function(event){
     console.log("inside ajax");
     $.ajax(
         {
             data : {
-                
+                speedval : speed.innerHTML,
+                direction :direction.innerHTML,
                     },
-            url: '/graph',
+            url: '/predict',
             type : 'GET',
             success: function(data)
             {
-                console.log("success")
+                alert(data.prediction);
+                $('#output').text(data.prediction * 3600 + "   kW").show();
             }
 
 
@@ -55,33 +78,4 @@ $('#graph').click(function(event){
     
 }
 );
-});*/
-
-
-
-$(document).ready(function() {
-    $('button').click(function(event){
-        console.log("inside ajax");
-        $.ajax(
-            {
-                data : {
-                    city:cityName.innerHTML
-
-                        },
-                url: '/forecast',
-                type : 'GET',
-                success: function(data)
-                {
-                    console.log(data.max_output);
-                    console.log( data.hour);
-                    $('#output').text(data.max_output + " at "+ data.hour +" hour from now").show();
-                }
-    
-    
-            }
-        );
-        
-        
-    }
-)
 });
