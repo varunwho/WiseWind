@@ -2,9 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
     font-family: 'Nunito',sans-serif;
 }
 
@@ -52,14 +49,27 @@ nav .nav li:hover {
 }
 
 .hero-section .hero-image img {
-    width: 550px;
-    height: 550px;
-    margin-right: 10px;
+    width: 600px;
+    height: 600px;
 }
 
 .hero-section .hero-text {
-    font-size: 20px;
-    margin-left: 100px;
+  font-size: 20px;
+  margin-left: 100px;
+  /* text-align: center; */
+}
+
+.hero-section .hero-text h2 {
+  margin: 25px 0;
+  /* text-align: center; */
+  font-size: 50px;
+  color: #FF6E40;
+  font-weight: bold;
+}
+
+.hero-section .hero-text p {
+  font-weight: 500;
+  font-size: 25px;
 }
 
 .about-section {
@@ -167,15 +177,27 @@ h1.temp {
 }
 
 .button{
-  height: 50px;
-    width: 100px;
-    background: #E7E7E7;
-    font-family: 'Nunito',sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #FF6E40;
-    color: #FFF;
+  /* height: 30px; */
+  /* width: 100px; */
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #FF6E40;
+  color: #FFF;
+  margin: 20px 0;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+#output {
+  background-color: #E7E7E7;
+  color: #000;
+  font-family: 'Nunito',sans-serif;
+  padding: 15px;
+  border-radius: 15px;
+  width: 75%;
+  margin: auto;
+  text-align: center;
 }
