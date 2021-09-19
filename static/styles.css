@@ -8,9 +8,105 @@ body {
     font-family: 'Nunito',sans-serif;
 }
 
+.container {
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    padding: 30px 0;
+    justify-content: space-between;
+}
+
+nav .logo {
+    font-size: 25px;
+    color: #FF6E40;
+    font-weight: 500;
+}
+
+nav .nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav .nav li {
+    margin: 0 20px;
+    list-style: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+nav .nav li:hover {
+    color: #FF6E40;
+    text-decoration: underline;
+}
+
+.hero-section {
+    height: 90vh;
+    /* padding: 30px; */
+    display: flex;
+    align-items: center;
+}
+
+.hero-section .hero-image img {
+    width: 550px;
+    height: 550px;
+    margin-right: 10px;
+}
+
+.hero-section .hero-text {
+    font-size: 20px;
+    margin-left: 100px;
+}
+
+.about-section {
+    text-align: center;
+    font-size: 25px;
+    margin: 30px;
+}
+
+.about-section #unique {
+    color: #FF6E40;
+}
+
+.about-section .cards {
+    display: flex;
+    justify-content: space-around;
+    margin: 80px 0;
+}
+
+.about-section .cards .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  margin: 0 10px;   
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.card-container {
+  padding: 2px 16px;
+}
+
+.weather-card {
+    background-color: #a5c735;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 0;
+}
+
+
 .input {
     text-align: center;
-    margin: 100px 0;
+    margin: 50px 0;
 }
 
 input[type='text'] {
