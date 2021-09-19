@@ -54,22 +54,22 @@ def forecast():
     data = pd.DataFrame()
     data['WindSpeed'] = windspeed
     data['WindDir'] = winddirection
-    print(data.head())
+    
     data['WindSpeed'] = data['WindSpeed']/19.45
     data['WindDir']= data['WindDir']/360
-    print(data.head())
+    
 
     result = model.predict(data)
     result = result*3600
     output = pd.DataFrame(result,columns=['Power generated(kWh)'])
-    print(output.max())
-    print (output.idxmax(axis = 0))
+    
     k = float(output.max())
     m = float(output.idxmax(axis = 0))
     
 
     fig = px.line(output, y='Power generated(kWh)',labels={'index':'No of hrs'})
     fig.write_html("./templates/graph.html")
+    fig.write_html("./static/graph.html")
     return jsonify(
         {
             'max_output' : k,
@@ -83,7 +83,11 @@ def forecast():
     
 app.add_url_rule('/forecast','forecast', forecast)
 
-    
+@app.route('/graph')    
+def graph():
+    return(flask.render_template('graph.html'))
+
+
 
 @app.route('/')
 def main(): 
