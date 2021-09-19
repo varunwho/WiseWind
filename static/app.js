@@ -66,7 +66,7 @@ $('button').click(function(event){
             type : 'GET',
             success: function(data)
             {
-                alert(data.prediction);
+                
                 $('#output').text("Max output generated(kW): "+data.max_output + " at  "+ data.hour + " hour from now").show();
             }
 
