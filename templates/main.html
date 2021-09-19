@@ -25,13 +25,16 @@
     
     <div >
         
-        <button id="button" class="button" > FORECAST </button>
+        <button id="button" > FORECAST </button>
     </div>
     <h1>Max Power Generated (kW): </h1>
     <h1 id = 'output'>
         
 
     </h1>
+    <div>
+        <a href="{{ url_for('static',filename='graph.html') }}">Show Detailed Forecast</a>
+    </div>
 
 </body>
 </html>

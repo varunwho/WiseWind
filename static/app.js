@@ -30,22 +30,22 @@ button.addEventListener('click',function() {
 
 
 //====================Forecast===========//
+
+
 /*
 $(document).ready(function() {
-$('button').click(function(event){
+$('#graph').click(function(event){
     console.log("inside ajax");
     $.ajax(
         {
             data : {
-                speedval : speed.innerHTML,
-                direction :direction.innerHTML,
+                
                     },
-            url: '/predict',
+            url: '/graph',
             type : 'GET',
             success: function(data)
             {
-                alert(data.prediction);
-                $('#output').text(data.prediction * 3600 + "   kW").show();
+                console.log("success")
             }
 
 
@@ -56,6 +56,8 @@ $('button').click(function(event){
 }
 );
 });*/
+
+
 
 $(document).ready(function() {
     $('button').click(function(event){
