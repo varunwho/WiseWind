@@ -74,7 +74,7 @@ $(document).ready(function() {
                 {
                     console.log(data.max_output);
                     console.log( data.hour);
-                    $('#output').text(data.max_output + " at "+ data.hour).show();
+                    $('#output').text(data.max_output + " at "+ data.hour +" hour from now").show();
                 }
     
     
