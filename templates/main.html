@@ -8,33 +8,53 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="input">
-        <input type="text" class="inputValue" placeholder="Enter a city">
-        <input type="submit" value="Submit" class="button">
-    </div>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <h2>WiseWind</h2>
+            </div>
+            <ul class="nav">
+                <li>Home</li>
+                <li>About</li>
+                <li>Forecast</li>
+            </ul>
+        </nav>
 
-    <div class="display">
-        <h1 class="cityName"></h1>
-        <h3 class="desc"></h3>
-        <h3 class="temp"></h3>
-        <h3 class="speed"> </h3>
-        <h3 class="direction"></h3>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
+        <div class="hero-section">
+            <div class="hero-image">
+                <img src="./assets/hero-img.svg" alt="hero-image">
+            </div>
+            <div class="hero-text">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ipsa est sit repudiandae provident nam, adipisci iure corrupti fugiat nobis, saepe, pariatur deserunt et omnis consectetur voluptatum sint natus. Ducimus aliquid debitis maiores sunt dolorum exercitationem nam! Culpa accusantium quos illo dolores ipsum veniam voluptatem eos repellendus fugit assumenda rerum, voluptatum ipsa vero laudantium. Impedit dolores perspiciatis recusandae numquam quisquam?</p>
+            </div>
+
+        </div>
+
+        <div class="weather-card">
+            <div class="input">
+                <input type="text" class="inputValue" placeholder="Enter a city">
+                <input type="submit" value="Submit" class="button">
+            </div>
+
+            <div class="display">
+                <h1 class="cityName"></h1>
+                <h3 class="desc"></h3>
+                <h3 class="temp"></h3>
+                <h3 class="speed"> </h3>
+                <h3 class="direction"></h3>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="{{ url_for('static', filename='app.js') }}"></script>
+            
+            <div>
+                <button id="button" > FORECAST </button>
+            </div>
+            <h1>Max Power Generated (kW): </h1>
+            <h1 id = 'output'></h1>
+            <div>
+                <a href="{{ url_for('static',filename='graph.html') }}">Show Detailed Forecast</a>
+            </div>
+        </div>
     
-    <div >
-        
-        <button id="button" > FORECAST </button>
-    </div>
-    <h1>Max Power Generated (kW): </h1>
-    <h1 id = 'output'>
-        
-
-    </h1>
-    <div>
-        <a href="{{ url_for('static',filename='graph.html') }}">Show Detailed Forecast</a>
-    </div>
-
 </body>
 </html>
