@@ -30,6 +30,7 @@ button.addEventListener('click',function() {
 
 
 //====================Forecast===========//
+/*
 $(document).ready(function() {
 $('button').click(function(event){
     console.log("inside ajax");
@@ -54,4 +55,31 @@ $('button').click(function(event){
     
 }
 );
+});*/
+
+$(document).ready(function() {
+    $('button').click(function(event){
+        console.log("inside ajax");
+        $.ajax(
+            {
+                data : {
+                    city:cityName.innerHTML
+
+                        },
+                url: '/forecast',
+                type : 'GET',
+                success: function(data)
+                {
+                    console.log(data.max_output);
+                    console.log( data.hour);
+                    $('#output').text(data.max_output + " at "+ data.hour).show();
+                }
+    
+    
+            }
+        );
+        
+        
+    }
+)
 });
