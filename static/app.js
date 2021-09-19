@@ -60,15 +60,14 @@ $('button').click(function(event){
     $.ajax(
         {
             data : {
-                speedval : speed.innerHTML,
-                direction :direction.innerHTML,
+                city: document.getElementById('city')
                     },
-            url: '/predict',
+            url: '/forecast',
             type : 'GET',
             success: function(data)
             {
                 alert(data.prediction);
-                $('#output').text(data.prediction * 3600 + "   kW").show();
+                $('#output').text("Max output generated(kW): "+data.max_output + " at  "+ data.hour + " hour from now").show();
             }
 
 

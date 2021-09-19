@@ -165,3 +165,17 @@ h1.temp {
   top: 0;
   left: 20px;
 }
+
+.button{
+  height: 50px;
+    width: 100px;
+    background: #E7E7E7;
+    font-family: 'Nunito',sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #FF6E40;
+    color: #FFF;
+}
