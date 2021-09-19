@@ -21,8 +21,8 @@ button.addEventListener('click',function() {
         cityName.innerHTML = nameValue;
         desc.innerHTML = descValue;
         temp.innerHTML = (tempValue-273.15).toFixed(2)+'\xB0C';
-        speed.innerHTML = windSpeed+' m/s';
-        direction.innerHTML = directionValue + ' deg';
+        speed.innerHTML = windSpeed;
+        direction.innerHTML = directionValue;
     })
 
 .catch(err => console.log('Wrong city name'))
@@ -31,19 +31,20 @@ button.addEventListener('click',function() {
 
 //====================Forecast===========//
 $(document).ready(function() {
-$('out').click(function(event){
+$('button').click(function(event){
     console.log("inside ajax");
     $.ajax(
         {
             data : {
                 speedval : speed.innerHTML,
-                direction : direction.innerHTML,
+                direction :direction.innerHTML,
                     },
-            url: '/hi',
-            type : 'POST',
+            url: '/predict',
+            type : 'GET',
             success: function(data)
             {
                 alert(data.prediction);
+                $('#output').text(data.prediction * 3600 + "   kW").show();
             }
 
 
