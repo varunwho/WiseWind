@@ -4,3 +4,4 @@ env
 test_db.db
 .vscode
 .ipynb_checkpoints
+app.js
